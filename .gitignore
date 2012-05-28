@@ -2,3 +2,5 @@
 *.pyc
 localsettings.py
 *.sublime-*
+staticfiles/
+mediafiles/
