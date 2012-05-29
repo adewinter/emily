@@ -38,6 +38,8 @@ MEDIA_ROOT = 'mediafiles/'
 # Examples: "http://media.lawrence.com/media/", "http://example.com/media/"
 MEDIA_URL = '/media/'
 
+FILEBROWSER_URL_TINYMCE = '/static/tiny_mce/'
+FILEBROWSER_PATH_TINYMCE = FILEBROWSER_URL_TINYMCE
 # Absolute path to the directory static files should be collected to.
 # Don't put anything in this directory yourself; store your static files
 # in apps' "static/" subdirectories and in STATICFILES_DIRS.
@@ -47,6 +49,7 @@ STATIC_ROOT = 'staticfiles/'
 # URL prefix for static files.
 # Example: "http://media.lawrence.com/static/"
 STATIC_URL = '/static/'
+ADMIN_MEDIA_PREFIX = STATIC_URL
 
 # Additional locations of static files
 STATICFILES_DIRS = (
@@ -79,6 +82,7 @@ MIDDLEWARE_CLASSES = (
     'django.contrib.messages.middleware.MessageMiddleware',
     # Uncomment the next line for simple clickjacking protection:
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'django.contrib.flatpages.middleware.FlatpageFallbackMiddleware',
 )
 
 ROOT_URLCONF = 'emily.urls'
@@ -103,7 +107,7 @@ INSTALLED_APPS = (
     'django.contrib.admin',
     # Uncomment the next line to enable admin documentation:
     'django.contrib.admindocs',
-
+    'django.contrib.flatpages',
     'south',
 
     'emily.main',

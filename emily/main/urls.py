@@ -1,9 +1,8 @@
 from django.conf.urls.defaults import patterns, include, url
 
-# Uncomment the next two lines to enable the admin:
-# from django.contrib import admin
-# admin.autodiscover()
-
 urlpatterns = patterns('',
+    url(r'^upload/$', 'emily.main.views.upload_file', name='upload'),
     url(r'^$', 'emily.main.views.home', name='home'),
+
 )
+
