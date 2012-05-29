@@ -11,11 +11,6 @@ def home(request):
     context = {}
     return render_to_response("main/base.html", context, context_instance=RequestContext(request))
 
-
-
-
-# Imaginary function to handle an uploaded file.
-
 def handle_uploaded_image(file):
     iu = UploadedImage()
     iu.file = file
