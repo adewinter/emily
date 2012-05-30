@@ -1,3 +1,6 @@
+{% load flatpages %}
+{% load my_tags %}
+{% get_flatpages as flatpages %}
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
         "http://www.w3.org/TR/html4/loose.dtd">
 <html>
@@ -14,8 +17,35 @@
 {% endblock %}
 </head>
 <body>
-{% block body %}
-    {{ SETTINGS }}
-{% endblock %}
+<div class="container">
+    <div class="jumbotron">
+            <div class="span10"><img style="display:inline; vertical-align:middle" src="{{ STATIC_URL }}images/emily_logo.png" /><h1 style="display:inline">Emily Alexander is a bad ass.</h1></div>
+    </div>
+</div>
+<div class="container">
+    <div id="all" class="row-fluid">
+        <div id="sidebar" class="span4">
+            <div class="well">
+                <ul class="nav nav-list">
+                {% block menu %}
+                    {% for page in flatpages %}
+                        <li class="{% active request page.url %}">
+                            <a href="{{ page.url }}">
+                                <i class="icon-heart icon-white"></i>
+                                {{ page.title }}
+                            </a>
+                        </li>
+                    {% endfor %}
+
+                {% endblock %}
+                </ul>
+            </div>
+        </div>
+        <div id="body" class="span8">
+            {% block content %}
+            {% endblock %}
+        </div>
+    </div>
+</div>
 </body>
 </html>
