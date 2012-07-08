@@ -4,3 +4,4 @@ localsettings.py
 *.sublime-*
 staticfiles/
 mediafiles/
+*.sqlite3
